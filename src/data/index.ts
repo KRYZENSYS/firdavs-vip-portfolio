@@ -40,4 +40,9 @@ export const PAGES = [
   { label: "Resume", href: "/resume" },
   { label: "Changelog", href: "/changelog" },
   { label: "TIL", href: "/til" },
+  { label: "Shop", href: "/shop" },
+  { label: "Book a Call", href: "/book" },
+  { label: "Courses", href: "/courses" },
+  { label: "Premium", href: "/premium" },
+  { label: "Reading List", href: "/reading-list" },
 ];
