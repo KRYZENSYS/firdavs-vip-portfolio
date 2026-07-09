@@ -13,8 +13,14 @@ import HackerTyper from "@/components/effects/HackerTyper";
 import CyberFact from "@/components/effects/CyberFact";
 import LiveStatus from "@/components/effects/LiveStatus";
 import ScrollProgress from "@/components/effects/ScrollProgress";
+import AIChat from "@/components/effects/AIChat";
+import SearchPalette from "@/components/effects/SearchPalette";
+import PushPermission from "@/components/effects/PushPermission";
+import AnalyticsProvider from "@/components/effects/Analytics";
 import { I18nProvider } from "@/lib/i18n";
 import { ThemeProvider } from "@/lib/theme";
+import { FavoritesProvider } from "@/lib/favorites";
+import { ReadingListProvider } from "@/lib/reading-list";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const jetbrains = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains", display: "swap" });
@@ -36,9 +42,7 @@ export const metadata: Metadata = {
   icons: { icon: [{ url: "/icon-192.png" }] },
 };
 
-export const viewport: Viewport = {
-  themeColor: "#050505", width: "device-width", initialScale: 1, maximumScale: 5,
-};
+export const viewport: Viewport = { themeColor: "#050505", width: "device-width", initialScale: 1, maximumScale: 5 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -46,18 +50,26 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="font-sans antialiased">
         <ThemeProvider>
           <I18nProvider>
-            <SmoothScroll>{children}</SmoothScroll>
-            <ServiceWorkerInit />
-            <KonamiCode />
-            <VoiceGreeting />
-            <CustomCursor />
-            <MusicPlayer />
-            <CommandPalette />
-            <VisitorCounter />
-            <HackerTyper />
-            <CyberFact />
-            <LiveStatus />
-            <ScrollProgress />
+            <FavoritesProvider>
+              <ReadingListProvider>
+                <SmoothScroll>{children}</SmoothScroll>
+                <ServiceWorkerInit />
+                <KonamiCode />
+                <VoiceGreeting />
+                <CustomCursor />
+                <MusicPlayer />
+                <CommandPalette />
+                <SearchPalette />
+                <VisitorCounter />
+                <HackerTyper />
+                <CyberFact />
+                <LiveStatus />
+                <ScrollProgress />
+                <AIChat />
+                <PushPermission />
+                <AnalyticsProvider />
+              </ReadingListProvider>
+            </FavoritesProvider>
           </I18nProvider>
         </ThemeProvider>
       </body>
