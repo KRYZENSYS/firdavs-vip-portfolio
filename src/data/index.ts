@@ -30,5 +30,7 @@ export const STATS: { value: number; suffix: string; label: string }[] = [
 
 export const NAV_LINKS = [
   { label: "Home", href: "#home" }, { label: "About", href: "#about" }, { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" }, { label: "Stats", href: "#stats" }, { label: "Blog", href: "#blog" }, { label: "Contact", href: "#contact" },
+  { label: "Projects", href: "#projects" }, { label: "Stats", href: "#stats" }, { label: "GitHub", href: "#github" },
+  { label: "Badges", href: "#achievements" }, { label: "Gallery", href: "#gallery" }, { label: "Timeline", href: "#timeline" },
+  { label: "Reviews", href: "#testimonials" }, { label: "Blog", href: "#blog" }, { label: "Contact", href: "#contact" },
 ];
