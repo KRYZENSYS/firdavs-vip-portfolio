@@ -13,7 +13,12 @@ import About from "@/components/sections/About";
 import Skills from "@/components/sections/Skills";
 import Projects from "@/components/sections/Projects";
 import Stats from "@/components/sections/Stats";
+import GithubStats from "@/components/sections/GithubStats";
 import Blog from "@/components/sections/Blog";
+import Gallery from "@/components/sections/Gallery";
+import Achievements from "@/components/sections/Achievements";
+import Timeline from "@/components/sections/Timeline";
+import Testimonials from "@/components/sections/Testimonials";
 import Contact from "@/components/sections/Contact";
 
 export default function Home() {
@@ -35,6 +40,11 @@ export default function Home() {
         <Skills />
         <Projects />
         <Stats />
+        <GithubStats />
+        <Achievements />
+        <Gallery />
+        <Timeline />
+        <Testimonials />
         <Blog />
         <Contact />
       </div>
