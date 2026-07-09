@@ -2,66 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --bg: #050505;
-  --primary: #00F5FF;
-  --secondary: #7B2EFF;
-  --accent: #4DA6FF;
-}
-
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-html, body { margin: 0; padding: 0; background: var(--bg); color: #fff; }
-body {
-  font-family: var(--font-inter), system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  background-image:
-    radial-gradient(1200px 600px at 10% -10%, rgba(123, 46, 255, 0.18) 0%, transparent 60%),
-    radial-gradient(1000px 500px at 110% 10%, rgba(0, 245, 255, 0.14) 0%, transparent 60%),
-    radial-gradient(800px 600px at 50% 120%, rgba(77, 166, 255, 0.10) 0%, transparent 60%);
-  background-attachment: fixed;
-  min-height: 100vh;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-a { color: inherit; text-decoration: none; }
-::selection { background: rgba(0, 245, 255, 0.35); color: #fff; }
-
-::-webkit-scrollbar { width: 10px; height: 10px; }
-::-webkit-scrollbar-track { background: #050505; }
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #00F5FF, #7B2EFF);
-  border-radius: 8px;
-  border: 2px solid #050505;
+@layer base {
+  :root {
+    --bg: 5 5 5; --fg: 255 255 255;
+    --primary: 0 245 255; --secondary: 123 46 255; --accent: 77 166 255; --pink: 255 46 154;
+    --surface: 18 18 22;
+  }
+  html.light { --bg: 245 247 250; --fg: 14 14 18; --surface: 255 255 255; }
+  html { color-scheme: dark; }
+  html.light { color-scheme: light; }
+  body { @apply bg-bg text-white selection:bg-primary/30 selection:text-white; }
+  html.light body { @apply text-neutral-900; background: #f5f7fa; }
+  html.light .bg-bg { background-color: rgb(var(--bg)) !important; }
+  html.light .bg-bg\/60 { background-color: rgba(var(--bg), 0.7) !important; }
+  html.light .bg-bg\/90 { background-color: rgba(var(--bg), 0.9) !important; }
+  html.light .bg-bg\/95 { background-color: rgba(var(--bg), 0.95) !important; }
+  html.light .bg-bg\/70 { background-color: rgba(var(--bg), 0.7) !important; }
+  html.light .bg-white\/\[0\.04\] { background-color: rgba(255,255,255,0.7) !important; }
+  html.light .bg-white\/5 { background-color: rgba(14,14,18,0.05) !important; }
+  html.light .bg-white\/10 { background-color: rgba(14,14,18,0.08) !important; }
+  html.light .border-white\/10 { border-color: rgba(14,14,18,0.1) !important; }
+  html.light .border-white\/5 { border-color: rgba(14,14,18,0.05) !important; }
+  html.light .text-white\/70 { color: rgba(14,14,18,0.7) !important; }
+  html.light .text-white\/60 { color: rgba(14,14,18,0.6) !important; }
+  html.light .text-white\/50 { color: rgba(14,14,18,0.5) !important; }
+  html.light .text-white\/40 { color: rgba(14,14,18,0.4) !important; }
+  html.light .text-white\/30 { color: rgba(14,14,18,0.3) !important; }
+  html.light .grid-bg { background-image: linear-gradient(rgba(14,14,18,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(14,14,18,0.08) 1px, transparent 1px) !important; }
 }
 
 @layer components {
-  .text-gradient { @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent; }
-  .glass { @apply bg-white/5 backdrop-blur-xl border border-white/10; }
-  .glass-strong { @apply bg-white/[0.08] backdrop-blur-2xl border border-white/15; }
-  .rgb-border { position: relative; isolation: isolate; }
-  .rgb-border::before {
-    content: ""; position: absolute; inset: -1.5px; z-index: -1; border-radius: inherit;
-    background: linear-gradient(90deg, #00F5FF, #7B2EFF, #4DA6FF, #00F5FF);
-    background-size: 300% 100%;
-    animation: rgbBorder 6s linear infinite;
-  }
-  @keyframes rgbBorder { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
-  .neon-text { text-shadow: 0 0 18px rgba(0, 245, 255, 0.6), 0 0 36px rgba(123, 46, 255, 0.35); }
-  .grid-bg {
-    background-image:
-      linear-gradient(rgba(0, 245, 255, 0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 245, 255, 0.06) 1px, transparent 1px);
-    background-size: 64px 64px;
-  }
   .container-x { @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8; }
   .section { @apply relative py-20 md:py-28; }
-}
-
-@layer utilities {
-  .mask-fade { mask-image: linear-gradient(180deg, #000 60%, transparent 100%); -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent 100%); }
-  .perspective-1000 { perspective: 1000px; }
-  .transform-3d { transform-style: preserve-3d; }
+  .glass { @apply rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-xl; }
+  .text-gradient { background: linear-gradient(90deg, #00F5FF 0%, #7B2EFF 50%, #4DA6FF 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .neon-text { text-shadow: 0 0 24px rgba(0,245,255,0.35), 0 0 60px rgba(123,46,255,0.25); }
+  .grid-bg { background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 60px 60px; }
+  .shadow-neon-cyan { box-shadow: 0 0 24px rgba(0,245,255,0.35), 0 0 60px rgba(0,245,255,0.15); }
+  .shadow-neon-purple { box-shadow: 0 0 24px rgba(123,46,255,0.4), 0 0 60px rgba(123,46,255,0.2); }
+  .animate-pulse-glow { animation: pulseGlow 4s ease-in-out infinite; }
+  @keyframes pulseGlow { 0%, 100% { transform: scale(1); opacity: 0.3; } 50% { transform: scale(1.1); opacity: 0.5; } }
+  .scrollbar-thin::-webkit-scrollbar { width: 6px; height: 6px; }
+  .scrollbar-thin::-webkit-scrollbar-thumb { background: rgba(0,245,255,0.3); border-radius: 3px; }
+  .scrollbar-thin::-webkit-scrollbar-track { background: transparent; }
 }
 
 @media (prefers-reduced-motion: reduce) {
