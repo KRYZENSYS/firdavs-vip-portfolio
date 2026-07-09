@@ -1,14 +1,23 @@
 {
   "name": "FIRDAVS VIP — Dark Future Vision",
-  "short_name": "FIRDAVS VIP",
-  "description": "Cyberpunk portfolio of Firdavs — Cyber Security student, Python & Telegram Bot developer from Uzbekistan.",
+  "short_name": "FIRDAVS",
+  "description": "Firdavs VIP portfolio. Cyber Security, Python, AI, Telegram Bots.",
   "start_url": "/",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#050505",
   "theme_color": "#050505",
-  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
   "icons": [
     { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
     { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ],
+  "categories": ["developer", "productivity", "education"],
+  "shortcuts": [
+    { "name": "Projects", "url": "/#projects", "description": "View all projects" },
+    { "name": "Blog", "url": "/#blog", "description": "Read latest posts" },
+    { "name": "Shop", "url": "/shop", "description": "Digital products" },
+    { "name": "Contact", "url": "/#contact", "description": "Get in touch" }
   ]
 }
