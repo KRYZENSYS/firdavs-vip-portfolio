@@ -5,7 +5,12 @@ import SmoothScroll from "@/components/effects/SmoothScroll";
 import ServiceWorkerInit from "@/components/effects/ServiceWorkerInit";
 import KonamiCode from "@/components/effects/KonamiCode";
 import VoiceGreeting from "@/components/effects/VoiceGreeting";
+import CustomCursor from "@/components/effects/CustomCursor";
+import MusicPlayer from "@/components/effects/MusicPlayer";
+import CommandPalette from "@/components/effects/CommandPalette";
+import VisitorCounter from "@/components/effects/VisitorCounter";
 import { I18nProvider } from "@/lib/i18n";
+import { ThemeProvider } from "@/lib/theme";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const jetbrains = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains", display: "swap" });
@@ -35,12 +40,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${inter.variable} ${jetbrains.variable} ${orbitron.variable}`}>
       <body className="font-sans antialiased">
-        <I18nProvider>
-          <SmoothScroll>{children}</SmoothScroll>
-          <ServiceWorkerInit />
-          <KonamiCode />
-          <VoiceGreeting />
-        </I18nProvider>
+        <ThemeProvider>
+          <I18nProvider>
+            <SmoothScroll>{children}</SmoothScroll>
+            <ServiceWorkerInit />
+            <KonamiCode />
+            <VoiceGreeting />
+            <CustomCursor />
+            <MusicPlayer />
+            <CommandPalette />
+            <VisitorCounter />
+          </I18nProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
