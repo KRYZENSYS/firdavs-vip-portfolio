@@ -5,6 +5,7 @@ import { Bot, Shield, Download, Sparkles, Tv, Gamepad2, Star, GitFork, Github, A
 import SectionTitle from "@/components/sections/SectionTitle";
 import { PROJECTS } from "@/data";
 import CountUp from "@/components/ui/CountUp";
+import FavoriteButton from "@/components/ui/FavoriteButton";
 
 const ICONS: Record<string, any> = { Bot, Shield, Download, Sparkles, Tv, Gamepad2 };
 
@@ -52,10 +53,13 @@ export default function Projects() {
                 <div className={`pointer-events-none absolute -top-20 -right-20 h-44 w-44 rounded-full bg-gradient-to-br ${p.glow === "cyan" ? "from-cyan-500/30 to-blue-500/10" : p.glow === "purple" ? "from-purple-500/30 to-pink-500/10" : p.glow === "blue" ? "from-sky-500/30 to-emerald-500/10" : "from-pink-500/30 to-rose-500/10"} blur-3xl opacity-60 group-hover:opacity-100 transition`} />
                 <div className="relative">
                   <div className="flex items-start justify-between">
-                    <div className={`flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br ring-1 ring-white/10 group-hover:scale-110 transition`}>
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br ring-1 ring-white/10 group-hover:scale-110 transition">
                       <Icon className="h-5 w-5 text-primary" />
                     </div>
-                    <ArrowUpRight className="h-4 w-4 text-white/40 group-hover:text-primary group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all" />
+                    <div className="flex items-center gap-2">
+                      <FavoriteButton id={`project-${p.id}`} />
+                      <ArrowUpRight className="h-4 w-4 text-white/40 group-hover:text-primary group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all" />
+                    </div>
                   </div>
                   <h3 className="mt-5 text-lg font-bold text-white group-hover:text-primary transition-colors">{p.title}</h3>
                   <p className="mt-2 text-sm text-white/60 leading-relaxed">{p.description}</p>
