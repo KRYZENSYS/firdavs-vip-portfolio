@@ -3,13 +3,9 @@ node_modules/
 out/
 build/
 dist/
-.env
-.env.local
-.env.*.local
-*.log
+.env*.local
 .DS_Store
-.vercel
-.turbo
-.idea/
+*.log
 .vscode/
-coverage/
+.idea/
+next-env.d.ts
