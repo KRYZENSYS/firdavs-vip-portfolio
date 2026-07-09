@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { NAV_LINKS, SITE } from "@/data";
 import { cn } from "@/lib/utils";
+import LangSwitcher from "@/components/layout/LangSwitcher";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -26,16 +27,20 @@ export default function Navbar() {
         </a>
         <nav className="hidden md:flex items-center gap-1">
           {NAV_LINKS.map((l) => (
-            <a key={l.href} href={l.href} className="group relative px-4 py-2 text-sm uppercase tracking-widest text-white/70 hover:text-white transition">
+            <a key={l.href} href={l.href} className="group relative px-3 py-2 text-sm uppercase tracking-widest text-white/70 hover:text-white transition">
               <span className="relative z-10">{l.label}</span>
               <span className="absolute inset-x-3 -bottom-0.5 h-px scale-x-0 bg-gradient-to-r from-primary to-secondary transition-transform duration-500 group-hover:scale-x-100" />
             </a>
           ))}
-          <a href="#contact" className="ml-3 rounded-full border border-primary/40 bg-primary/5 px-5 py-2 text-sm font-medium text-primary shadow-neon-cyan hover:bg-primary/10 transition">Hire Me</a>
+          <a href="#contact" className="ml-2 rounded-full border border-primary/40 bg-primary/5 px-5 py-2 text-sm font-medium text-primary shadow-neon-cyan hover:bg-primary/10 transition">Hire Me</a>
+          <div className="ml-2"><LangSwitcher /></div>
         </nav>
-        <button onClick={() => setOpen((v) => !v)} aria-label="Toggle menu" className="md:hidden rounded-lg border border-white/10 bg-white/5 p-2 text-white">
-          {open ? <X size={18} /> : <Menu size={18} />}
-        </button>
+        <div className="md:hidden flex items-center gap-2">
+          <LangSwitcher />
+          <button onClick={() => setOpen((v) => !v)} aria-label="Toggle menu" className="rounded-lg border border-white/10 bg-white/5 p-2 text-white">
+            {open ? <X size={18} /> : <Menu size={18} />}
+          </button>
+        </div>
       </div>
       {open && (
         <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="md:hidden border-t border-white/10 bg-bg/90 backdrop-blur-xl">
