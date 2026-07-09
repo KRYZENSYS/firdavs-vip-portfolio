@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { ArrowRight, Mail, Sparkles } from "lucide-react";
+import { ArrowRight, Mail, Sparkles, Command } from "lucide-react";
 import Button from "@/components/ui/Button";
 import { SITE } from "@/data";
 
@@ -71,8 +71,14 @@ export default function Hero() {
           <Button href={SITE.socials.telegram} external variant="ghost" icon={<Mail size={16} />}>Telegram</Button>
         </motion.div>
 
+        <motion.button onClick={() => window.dispatchEvent(new KeyboardEvent("keydown", { key: "k", metaKey: true }))}
+          initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.9 }}
+          className="mt-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[10px] uppercase tracking-widest text-white/50 hover:border-primary/40 hover:text-white transition">
+          <Command size={11} /> press Cmd+K for terminal
+        </motion.button>
+
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }}
-          className="mt-16 flex flex-wrap items-center justify-center gap-6 text-xs uppercase tracking-[0.3em] text-white/40">
+          className="mt-12 flex flex-wrap items-center justify-center gap-6 text-xs uppercase tracking-[0.3em] text-white/40">
           <span className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" /> Available for work</span>
           <span>Uzbekistan · UTC+5</span>
           <span>{SITE.username}</span>
