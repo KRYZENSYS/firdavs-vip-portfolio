@@ -2,6 +2,10 @@ import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono, Orbitron } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/effects/SmoothScroll";
+import ServiceWorkerInit from "@/components/effects/ServiceWorkerInit";
+import KonamiCode from "@/components/effects/KonamiCode";
+import VoiceGreeting from "@/components/effects/VoiceGreeting";
+import { I18nProvider } from "@/lib/i18n";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const jetbrains = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains", display: "swap" });
@@ -14,9 +18,13 @@ export const metadata: Metadata = {
   keywords: ["Firdavs VIP", "FirdavsVIP", "Cyber Security", "Telegram Bot", "Python", "AI", "Portfolio", "Uzbekistan"],
   authors: [{ name: "Firdavs", url: "https://t.me/FirdavsVIP" }],
   creator: "Firdavs VIP", publisher: "Firdavs VIP",
+  manifest: "/manifest.json",
   openGraph: { type: "website", locale: "en_US", url: "/", siteName: "FIRDAVS VIP", title: "FIRDAVS VIP — Dark Future Vision", description: "Born in the shadows · Living without limits · Dark future vision." },
   twitter: { card: "summary_large_image", title: "FIRDAVS VIP — Dark Future Vision", description: "Cyber Security · Python · AI · Telegram Bots" },
-  robots: { index: true, follow: true }, alternates: { canonical: "/" },
+  robots: { index: true, follow: true },
+  alternates: { canonical: "/" },
+  appleWebApp: { capable: true, title: "FIRDAVS VIP", statusBarStyle: "black-translucent" },
+  icons: { icon: [{ url: "/icon-192.png" }] },
 };
 
 export const viewport: Viewport = {
@@ -27,7 +35,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${inter.variable} ${jetbrains.variable} ${orbitron.variable}`}>
       <body className="font-sans antialiased">
-        <SmoothScroll>{children}</SmoothScroll>
+        <I18nProvider>
+          <SmoothScroll>{children}</SmoothScroll>
+          <ServiceWorkerInit />
+          <KonamiCode />
+          <VoiceGreeting />
+        </I18nProvider>
       </body>
     </html>
   );
