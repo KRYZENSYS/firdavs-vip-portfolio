@@ -5,6 +5,8 @@ import SectionTitle from "@/components/sections/SectionTitle";
 import { POSTS } from "@/data/blog";
 import { useI18n } from "@/lib/i18n";
 import ReactionBar from "@/components/ui/ReactionBar";
+import FavoriteButton from "@/components/ui/FavoriteButton";
+import SaveToListButton from "@/components/ui/SaveToListButton";
 
 const TAG_TINT: Record<string, string> = {
   release: "text-cyan-300 border-cyan-400/30 bg-cyan-500/10",
@@ -39,12 +41,16 @@ export default function Blog() {
                     <span className="flex items-center gap-1"><Calendar size={11} /> {new Date(p.date).getFullYear()}</span>
                     <span className="flex items-center gap-1"><Clock size={11} /> {p.read}</span>
                   </span>
-                  <span className="inline-flex items-center gap-1 text-xs font-semibold text-primary">
+                  <a href={`/blog/${p.slug}`} className="inline-flex items-center gap-1 text-xs font-semibold text-primary">
                     {t("readMore")} <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
-                  </span>
+                  </a>
                 </div>
-                <div className="mt-4 border-t border-white/5 pt-4">
+                <div className="mt-4 flex flex-wrap items-center gap-2 border-t border-white/5 pt-4">
                   <ReactionBar id={p.slug} />
+                  <div className="ml-auto flex items-center gap-2">
+                    <SaveToListButton id={p.slug} title={p.title} />
+                    <FavoriteButton id={p.slug} />
+                  </div>
                 </div>
               </div>
             </motion.article>
