@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #050505;
+  --cyber-cyan: #00f5ff;
+  --cyber-purple: #7b2eff;
+  --cyber-blue: #4da6ff;
+  --text: #e6f1ff;
+  --muted: #8a96a3;
+}
+
+* { box-sizing: border-box; }
+html, body { padding: 0; margin: 0; background: var(--bg); color: var(--text); }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-inter), system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(123,46,255,0.18) 0%, transparent 60%),
+    radial-gradient(1000px 500px at 110% 10%, rgba(0,245,255,0.14) 0%, transparent 60%),
+    radial-gradient(800px 600px at 50% 120%, rgba(77,166,255,0.10) 0%, transparent 60%),
+    #050505;
+  background-attachment: fixed;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a { color: inherit; text-decoration: none; }
+::selection { background: rgba(0,245,255,0.35); color: #fff; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #050505; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00f5ff, #7b2eff);
+  border-radius: 8px;
+}
+
+@layer components {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-cyber-cyan via-cyber-purple to-cyber-blue;
+  }
+  .glass {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+  }
+  .glass-strong {
+    @apply bg-white/[0.08] backdrop-blur-2xl border border-white/15;
+  }
+  .rgb-border {
+    position: relative; isolation: isolate;
+  }
+  .rgb-border::before {
+    content: ""; position: absolute; inset: -1.5px; z-index: -1; border-radius: inherit;
+    background: linear-gradient(90deg, #00f5ff, #7b2eff, #4da6ff, #00f5ff);
+    background-size: 300% 100%;
+    animation: rgbBorder 6s linear infinite;
+  }
+  .neon-cyan-glow { box-shadow: 0 0 18px rgba(0,245,255,.55), 0 0 40px rgba(0,245,255,.25); }
+  .neon-purple-glow { box-shadow: 0 0 22px rgba(123,46,255,.55), 0 0 44px rgba(123,46,255,.25); }
+  .grid-bg { background-image: linear-gradient(rgba(0,245,255,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(0,245,255,0.07) 1px, transparent 1px); background-size: 64px 64px; }
+  .section { @apply relative py-24 md:py-32 px-4 md:px-8; }
+  .container-cyber { @apply max-w-7xl mx-auto; }
+  .hover-lift { @apply transition-all duration-500 ease-cyber hover:-translate-y-2; }
+}
+
+@layer utilities {
+  .mask-fade-b { mask-image: linear-gradient(180deg, #000 70%, transparent 100%); -webkit-mask-image: linear-gradient(180deg, #000 70%, transparent 100%); }
+  .text-glow { text-shadow: 0 0 12px rgba(0,245,255,.6), 0 0 28px rgba(123,46,255,.35); }
+  .mask-radial { mask-image: radial-gradient(circle at center, #000 60%, transparent 100%); -webkit-mask-image: radial-gradient(circle at center, #000 60%, transparent 100%); }
+}
