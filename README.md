@@ -1,75 +1,85 @@
-# FIRD​AVS VIP — Ultra Premium Cyber Portfolio
+# FIRDAVS VIP — Dark Future Vision
 
-> Dark Future Vision · Born in the shadows · Living without limits
+> Ultra-premium cyberpunk portfolio of **Firdavs** — Cyber Security student, Python & Telegram Bot developer, AI enthusiast from **Uzbekistan**.
 
-A cinematic, futuristic, ultra-premium personal portfolio in **Cyberpunk / Hacker** style — Next.js 15, TypeScript, Tailwind CSS, Framer Motion, Three.js, GSAP, Lenis.
+![cyberpunk](https://img.shields.io/badge/cyber-000?style=flat-square)
+![next](https://img.shields.io/badge/Next.js-15-000?style=flat-square&logo=next.js)
+![ts](https://img.shields.io/badge/TypeScript-5-000?style=flat-square&logo=typescript)
+![pwa](https://img.shields.io/badge/PWA-ready-000?style=flat-square)
 
-## ✨ Highlights
+## ✨ Features
 
-- Loading screen with progress
-- Glassmorphism navbar
-- Three.js / Matrix rain backgrounds
-- Cursor glow + mouse trail
-- RGB animated borders
-- Smooth scroll (Lenis)
-- Reveal-on-scroll animations (Framer Motion + Intersection Observer)
-- Animated counters, neon progress bars
-- Premium project cards with hover lift
-- Fully responsive (mobile, tablet, desktop)
-- SEO-ready metadata + JSON-LD
-- Type-safe end-to-end
+- 🎨 Cinematic dark UI — neon cyan / purple / blue, animated gradient blobs, glassmorphism
+- 🌌 3D background — wireframe icosahedron + 3 rings + 700 particles (Three.js)
+- 🌧️ Matrix rain + scanline + cursor glow + mouse trail + grid overlay
+- 🎬 Smooth scroll (Lenis) + Framer Motion animations everywhere
+- 🌍 **i18n** — English / O'zbek / Русский (auto-detect + manual switcher)
+- 🗣️ **Voice greeting** — Web Speech API welcome line on first visit
+- 🔐 **Konami code easter egg** — unlock the dark layer (`↑↑↓↓←→←→BA`)
+- 📰 **Blog** section with 6 cyber-themed posts
+- 📱 **PWA** — installable, offline fallback, custom manifest
+- 📊 Count-up stats, animated progress bars, skill matrix
+- ✉️ Contact form with channel cards (Telegram, GitHub, Email, Location)
+- ⚡ SEO — full metadata, OpenGraph, Twitter, sitemap, robots.txt
+- ♿ A11y — reduced motion, aria-hidden decorations, focus rings
 
-## 🧱 Stack
+## 🛠️ Stack
 
-- **Next.js 15** (App Router)
-- **TypeScript** strict
-- **Tailwind CSS** 3 (custom theme)
-- **Framer Motion** 11
-- **Three.js** + **@react-three/fiber** + **drei**
-- **GSAP** 3
-- **Lenis** smooth scroll
-- **Lucide React** icons
-- **react-intersection-observer**
+- **Next.js 15** App Router + TypeScript 5
+- **Tailwind CSS 3** (custom theme + dark cyber palette)
+- **Framer Motion 11** — animation primitives
+- **Three.js + @react-three/fiber** — WebGL background
+- **Lenis** — smooth scroll
+- **Lucide React** — icons
+- **Web Speech API** — voice greeting
+- **Service Worker** — PWA offline
 
 ## 🚀 Run
 
 ```bash
-pnpm install
+git clone https://github.com/KRYZENSYS/firdavs-vip-portfolio
+cd firdavs-vip-portfolio
+pnpm install   # or npm install
 pnpm dev
-# build
-pnpm build && pnpm start
+# open http://localhost:3000
 ```
 
-## 🎨 Color tokens
-
-| Token | Value |
-|---|---|
-| bg | `#050505` |
-| primary | `#00F5FF` (cyan) |
-| secondary | `#7B2EFF` (purple) |
-| accent | `#4DA6FF` (blue) |
-| text | `#FFFFFF` |
-| muted | `#9CA3AF` |
-
-## 📦 Project structure
+## 📁 Structure
 
 ```
 src/
-  app/
-    layout.tsx
-    page.tsx
-    globals.css
-  components/
-    effects/        # MatrixRain, ParticlesBg, CursorGlow, MouseTrail, GridBg, Scanline
-    layout/         # Navbar, Footer, Loading
-    sections/       # Hero, About, Skills, Projects, Stats, Contact
-    ui/             # Button, Card, Badge, ProgressBar
-  data/             # content (projects, skills)
-  lib/              # motion presets, utils
-  hooks/            # useLenis, useMouse, useScrollProgress
-public/             # images, fonts
+├─ app/
+│  ├─ layout.tsx         # I18nProvider + SW + Konami + Voice
+│  ├─ page.tsx           # all sections wired
+│  ├─ offline/page.tsx   # PWA offline fallback
+│  ├─ sitemap.ts         # SEO sitemap
+│  └─ globals.css        # cyber theme + utilities
+├─ components/
+│  ├─ effects/           # SmoothScroll, CursorGlow, ThreeScene,
+│  │                     # MatrixRain, ParticleField, Scanline,
+│  │                     # MouseTrail, GridBackground, KonamiCode,
+│  │                     # VoiceGreeting, ServiceWorkerInit
+│  ├─ layout/            # LoadingScreen, Navbar, Footer, LangSwitcher
+│  ├─ sections/          # Hero, About, Skills, Projects, Stats, Blog, Contact
+│  └─ ui/                # Button, GlassCard, ProgressBar, CountUp, SectionTitle
+├─ lib/
+│  ├─ utils.ts
+│  ├─ motion.ts
+│  └─ i18n.tsx           # 3-locale dictionary + provider
+└─ data/
+   ├─ index.ts           # SITE, NAV, SKILLS, PROJECTS, STATS
+   └─ blog.ts            # POSTS
 ```
 
-## License
+## 🌐 Deployment
 
-MIT © FIRDAVS VIP
+Click **Deploy** to Vercel:
+[vercel.com/new](https://vercel.com/new) → import `KRYZENSYS/firdavs-vip-portfolio`.
+
+Custom domain (`firdavsvip.uz`) → Vercel Dashboard → Settings → Domains.
+
+## 👤 Author
+
+**Firdavs** — [@FirdavsVIP](https://t.me/FirdavsVIP) · Uzbekistan · 19 y.o · Cyber Security student.
+
+> _Born in the shadows. Living without limits. Dark future vision._
