@@ -34,3 +34,10 @@ export const NAV_LINKS = [
   { label: "Badges", href: "#achievements" }, { label: "Gallery", href: "#gallery" }, { label: "Timeline", href: "#timeline" },
   { label: "Reviews", href: "#testimonials" }, { label: "Blog", href: "#blog" }, { label: "Contact", href: "#contact" },
 ];
+
+export const PAGES = [
+  { label: "Team", href: "/team" },
+  { label: "Resume", href: "/resume" },
+  { label: "Changelog", href: "/changelog" },
+  { label: "TIL", href: "/til" },
+];
