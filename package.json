@@ -2,11 +2,11 @@
   "name": "firdavs-vip-portfolio",
   "version": "1.0.0",
   "private": true,
-  "description": "FIRDAVS VIP — Ultra Premium Cyberpunk Portfolio",
+  "description": "FIRDAVS VIP — Ultra Premium Cyber Portfolio",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3000",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 3000",
     "lint": "next lint",
     "typecheck": "tsc --noEmit"
   },
@@ -21,21 +21,20 @@
     "gsap": "^3.12.5",
     "lenis": "^1.1.18",
     "lucide-react": "^0.460.0",
-    "react-tsparticles": "^2.12.2",
-    "tsparticles-slim": "^2.12.0",
+    "react-intersection-observer": "^9.13.1",
     "clsx": "^2.1.1",
     "tailwind-merge": "^2.5.4"
   },
   "devDependencies": {
-    "typescript": "^5.6.3",
     "@types/node": "^22.9.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@types/three": "^0.170.0",
-    "tailwindcss": "^3.4.15",
     "autoprefixer": "^10.4.20",
+    "eslint": "^9.15.0",
+    "eslint-config-next": "15.0.3",
     "postcss": "^8.4.49",
-    "eslint": "^9.14.0",
-    "eslint-config-next": "15.0.3"
+    "tailwindcss": "^3.4.15",
+    "typescript": "^5.6.3"
   }
 }
