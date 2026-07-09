@@ -17,10 +17,18 @@ import AIChat from "@/components/effects/AIChat";
 import SearchPalette from "@/components/effects/SearchPalette";
 import PushPermission from "@/components/effects/PushPermission";
 import AnalyticsProvider from "@/components/effects/Analytics";
+import AuthModal from "@/components/effects/AuthModal";
+import ThreeAvatar from "@/components/effects/ThreeAvatar";
+import SnakeGame from "@/components/effects/SnakeGame";
+import XpHud from "@/components/effects/XpHud";
+import Starfield from "@/components/effects/Starfield";
+import TonConnect from "@/components/effects/TonConnect";
 import { I18nProvider } from "@/lib/i18n";
 import { ThemeProvider } from "@/lib/theme";
 import { FavoritesProvider } from "@/lib/favorites";
 import { ReadingListProvider } from "@/lib/reading-list";
+import { AuthProvider } from "@/lib/auth";
+import { XpProvider } from "@/lib/xp";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const jetbrains = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains", display: "swap" });
@@ -37,7 +45,7 @@ export const metadata: Metadata = {
   openGraph: { type: "website", locale: "en_US", url: "/", siteName: "FIRDAVS VIP", title: "FIRDAVS VIP — Dark Future Vision", description: "Born in the shadows · Living without limits · Dark future vision." },
   twitter: { card: "summary_large_image", title: "FIRDAVS VIP — Dark Future Vision", description: "Cyber Security · Python · AI · Telegram Bots" },
   robots: { index: true, follow: true },
-  alternates: { canonical: "/" },
+  alternates: { canonical: "/", types: { "application/rss+xml": "/rss.xml" } },
   appleWebApp: { capable: true, title: "FIRDAVS VIP", statusBarStyle: "black-translucent" },
   icons: { icon: [{ url: "/icon-192.png" }] },
 };
@@ -50,26 +58,36 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="font-sans antialiased">
         <ThemeProvider>
           <I18nProvider>
-            <FavoritesProvider>
-              <ReadingListProvider>
-                <SmoothScroll>{children}</SmoothScroll>
-                <ServiceWorkerInit />
-                <KonamiCode />
-                <VoiceGreeting />
-                <CustomCursor />
-                <MusicPlayer />
-                <CommandPalette />
-                <SearchPalette />
-                <VisitorCounter />
-                <HackerTyper />
-                <CyberFact />
-                <LiveStatus />
-                <ScrollProgress />
-                <AIChat />
-                <PushPermission />
-                <AnalyticsProvider />
-              </ReadingListProvider>
-            </FavoritesProvider>
+            <AuthProvider>
+              <FavoritesProvider>
+                <ReadingListProvider>
+                  <XpProvider>
+                    <SmoothScroll>{children}</SmoothScroll>
+                    <ServiceWorkerInit />
+                    <KonamiCode />
+                    <VoiceGreeting />
+                    <CustomCursor />
+                    <MusicPlayer />
+                    <CommandPalette />
+                    <SearchPalette />
+                    <VisitorCounter />
+                    <HackerTyper />
+                    <CyberFact />
+                    <LiveStatus />
+                    <ScrollProgress />
+                    <AIChat />
+                    <PushPermission />
+                    <AuthModal />
+                    <ThreeAvatar />
+                    <SnakeGame />
+                    <XpHud />
+                    <Starfield />
+                    <TonConnect />
+                    <AnalyticsProvider />
+                  </XpProvider>
+                </ReadingListProvider>
+              </FavoritesProvider>
+            </AuthProvider>
           </I18nProvider>
         </ThemeProvider>
       </body>
