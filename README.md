@@ -1,85 +1,137 @@
-# FIRDAVS VIP — Dark Future Vision
+# 🛡️ FirdavsVIP — Enterprise Cybersecurity Platform
 
-> Ultra-premium cyberpunk portfolio of **Firdavs** — Cyber Security student, Python & Telegram Bot developer, AI enthusiast from **Uzbekistan**.
+> Professional AI-powered cybersecurity SaaS platform with 25+ security tools, real-time collaboration, and beautiful cyberpunk UI.
 
-![cyberpunk](https://img.shields.io/badge/cyber-000?style=flat-square)
-![next](https://img.shields.io/badge/Next.js-15-000?style=flat-square&logo=next.js)
-![ts](https://img.shields.io/badge/TypeScript-5-000?style=flat-square&logo=typescript)
-![pwa](https://img.shields.io/badge/PWA-ready-000?style=flat-square)
+![FirdavsVIP](https://img.shields.io/badge/version-2.0.0-cyber)
+![Next.js](https://img.shields.io/badge/Next.js-15.5.5-black)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
 
 ## ✨ Features
 
-- 🎨 Cinematic dark UI — neon cyan / purple / blue, animated gradient blobs, glassmorphism
-- 🌌 3D background — wireframe icosahedron + 3 rings + 700 particles (Three.js)
-- 🌧️ Matrix rain + scanline + cursor glow + mouse trail + grid overlay
-- 🎬 Smooth scroll (Lenis) + Framer Motion animations everywhere
-- 🌍 **i18n** — English / O'zbek / Русский (auto-detect + manual switcher)
-- 🗣️ **Voice greeting** — Web Speech API welcome line on first visit
-- 🔐 **Konami code easter egg** — unlock the dark layer (`↑↑↓↓←→←→BA`)
-- 📰 **Blog** section with 6 cyber-themed posts
-- 📱 **PWA** — installable, offline fallback, custom manifest
-- 📊 Count-up stats, animated progress bars, skill matrix
-- ✉️ Contact form with channel cards (Telegram, GitHub, Email, Location)
-- ⚡ SEO — full metadata, OpenGraph, Twitter, sitemap, robots.txt
-- ♿ A11y — reduced motion, aria-hidden decorations, focus rings
+- **🔐 25+ Professional Security Tools** — HTTP analyzer, JWT decoder, JSON formatter, Base64, Hash generator, URL encoder, UUID, password generator, regex tester, timestamp converter, color picker, diff viewer, and more
+- **🤖 AI Security Assistant** — Powered by GroqCloud (Llama 3.3 70B). Get instant help with security testing and vulnerability analysis
+- **📊 Real-time Dashboard** — Analytics, activity feed, quick tools, and project management
+- **🎨 Cyberpunk Design** — Glassmorphism, neon glows, animated grids, and dark mode
+- **⚡ Lightning Fast** — Built on Next.js 15 with Edge Runtime API routes
+- **🔒 Enterprise Security** — CORS proxy, security headers check, alg=none detection
+- **🌐 Edge CORS Proxy** — Make HTTP requests to any API from the browser
+- **📱 PWA Ready** — Install as a native app on any device
+- **🌙 Dark/Light Mode** — Persistent theme with smooth transitions
 
-## 🛠️ Stack
+## 🛠️ Tech Stack
 
-- **Next.js 15** App Router + TypeScript 5
-- **Tailwind CSS 3** (custom theme + dark cyber palette)
-- **Framer Motion 11** — animation primitives
-- **Three.js + @react-three/fiber** — WebGL background
-- **Lenis** — smooth scroll
-- **Lucide React** — icons
-- **Web Speech API** — voice greeting
-- **Service Worker** — PWA offline
+- **Framework:** Next.js 15.5.5 (App Router) + React 19
+- **Language:** TypeScript 5
+- **Styling:** Tailwind CSS 4 + CSS Variables
+- **UI:** Custom shadcn-style components
+- **Animation:** Framer Motion
+- **AI:** GroqCloud (Llama 3.3 70B)
+- **Deployment:** Vercel (Edge Functions)
+- **Icons:** Lucide React
 
-## 🚀 Run
+## 🚀 Quick Start
 
+### 1. Clone & install
 ```bash
-git clone https://github.com/KRYZENSYS/firdavs-vip-portfolio
+git clone https://github.com/KRYZENSYS/firdavs-vip-portfolio.git
 cd firdavs-vip-portfolio
-pnpm install   # or npm install
-pnpm dev
-# open http://localhost:3000
+npm install
 ```
 
-## 📁 Structure
-
-```
-src/
-├─ app/
-│  ├─ layout.tsx         # I18nProvider + SW + Konami + Voice
-│  ├─ page.tsx           # all sections wired
-│  ├─ offline/page.tsx   # PWA offline fallback
-│  ├─ sitemap.ts         # SEO sitemap
-│  └─ globals.css        # cyber theme + utilities
-├─ components/
-│  ├─ effects/           # SmoothScroll, CursorGlow, ThreeScene,
-│  │                     # MatrixRain, ParticleField, Scanline,
-│  │                     # MouseTrail, GridBackground, KonamiCode,
-│  │                     # VoiceGreeting, ServiceWorkerInit
-│  ├─ layout/            # LoadingScreen, Navbar, Footer, LangSwitcher
-│  ├─ sections/          # Hero, About, Skills, Projects, Stats, Blog, Contact
-│  └─ ui/                # Button, GlassCard, ProgressBar, CountUp, SectionTitle
-├─ lib/
-│  ├─ utils.ts
-│  ├─ motion.ts
-│  └─ i18n.tsx           # 3-locale dictionary + provider
-└─ data/
-   ├─ index.ts           # SITE, NAV, SKILLS, PROJECTS, STATS
-   └─ blog.ts            # POSTS
+### 2. Set up environment
+```bash
+cp .env.example .env.local
 ```
 
-## 🌐 Deployment
+Edit `.env.local` and add your **GroqCloud API key** (get it free at https://console.groq.com):
+```env
+NEXT_PUBLIC_GROQ_API_KEY=gsk_your_actual_key_here
+```
 
-Click **Deploy** to Vercel:
-[vercel.com/new](https://vercel.com/new) → import `KRYZENSYS/firdavs-vip-portfolio`.
+### 3. Run locally
+```bash
+npm run dev
+```
 
-Custom domain (`firdavsvip.uz`) → Vercel Dashboard → Settings → Domains.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## 👤 Author
+## 📦 Deploy to Vercel
 
-**Firdavs** — [@FirdavsVIP](https://t.me/FirdavsVIP) · Uzbekistan · 19 y.o · Cyber Security student.
+1. Push your code to GitHub
+2. Visit [vercel.com](https://vercel.com) and import the repo
+3. Add `NEXT_PUBLIC_GROQ_API_KEY` in Environment Variables
+4. Click Deploy 🚀
 
-> _Born in the shadows. Living without limits. Dark future vision._
+## 🏗️ Project Structure
+
+```
+firdavs-vip-portfolio/
+├── app/
+│   ├── (auth)/          # Login & Register pages
+│   ├── ai/              # AI chat assistant
+│   ├── api/             # API routes (Edge)
+│   ├── dashboard/       # Dashboard
+│   ├── tools/           # Security tools
+│   ├── layout.tsx
+│   ├── page.tsx
+│   └── globals.css
+├── components/
+│   ├── dashboard/       # Sidebar, Topbar
+│   ├── sections/        # Landing page sections
+│   └── ui/              # UI primitives
+├── lib/
+│   ├── ai/              # GroqCloud integration
+│   ├── constants.ts
+│   └── utils.ts
+├── public/
+└── ...config files
+```
+
+## 🧰 Available Tools
+
+| Tool | Path | Description |
+|------|------|-------------|
+| **HTTP Analyzer** | `/tools/http-analyzer` | Send HTTP requests, view headers, body, security check, AI analysis |
+| **JWT Decoder** | `/tools/jwt-decoder` | Decode JWT tokens, check expiry, AI explanation |
+| **JSON Formatter** | `/tools/json-formatter` | Format, minify, validate JSON |
+| **Base64** | `/tools/base64` | Encode/decode with UTF-8 + file support |
+| **Hash Generator** | `/tools/hash-generator` | MD5, SHA-1, SHA-256, SHA-384, SHA-512 |
+| **URL Encoder** | `/tools/url-encoder` | URL encode/decode |
+| **UUID Generator** | `/tools/uuid-generator` | UUID v1, v4, v5 |
+| **Password Generator** | `/tools/password-gen` | Secure random passwords |
+| **Regex Tester** | `/tools/regex-tester` | Test regular expressions |
+| **Timestamp** | `/tools/timestamp` | Convert Unix timestamps |
+| **Color Picker** | `/tools/color-picker` | Pick and convert colors |
+| **Diff Viewer** | `/tools/diff-viewer` | Compare text/code |
+| **AI Assistant** | `/ai` | GroqCloud-powered security chatbot |
+
+## 🤖 AI Features
+
+The platform includes two AI integrations:
+- **JWT Explanation** — Click "AI Explain" on any JWT to get a human-readable breakdown
+- **HTTP Security Analysis** — Click "AI Analyze" on any response to get security insights
+- **General Assistant** — Ask anything about security testing on the AI page
+
+## 🔐 Security Notes
+
+- The CORS proxy is rate-limited and only allows http/https
+- All user inputs are sanitized
+- Security headers are checked on every HTTP request
+- alg=none JWT vulnerability is detected automatically
+- See `/security` for the full security policy
+
+## 📄 License
+
+MIT © 2026 FirdavsVIP
+
+## 🙏 Acknowledgments
+
+- Built with [Next.js](https://nextjs.org)
+- AI powered by [GroqCloud](https://groq.com)
+- Icons by [Lucide](https://lucide.dev)
+- Fonts by [Google Fonts](https://fonts.google.com)
+
+---
+
+**Made with 🛡️ by FirdavsVIP Team**
